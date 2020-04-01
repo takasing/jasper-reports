@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="daily_attendance_book" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="177b63c4-d699-4112-b4e4-0d8a515425ed">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="jsonsample/dataAdapter.xml"/>
+	<parameter name="employeeName" class="java.lang.String"/>
+	<parameter name="employeeNumber" class="java.lang.String"/>
+	<parameter name="employeeType" class="java.lang.String"/>
+	<parameter name="departments" class="java.lang.String"/>
+	<parameter name="monthlyScheduledWorkingDays" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[18]]></defaultValueExpression>
+	</parameter>
+	<parameter name="monthlyScheduledWorkingMinutes" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["144:28"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dailyScheduledWorkingMinutes" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["8:00"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="weeklyScheduledWorkingMinutes" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["40:00"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="weeklyScheduledWorkingDays" class="java.lang.Float" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[4.5]]></defaultValueExpression>
+	</parameter>
+	<parameter name="workedDays" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[18]]></defaultValueExpression>
+	</parameter>
+	<parameter name="workedAtHolidayDays" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="paidVacationDays" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="specialVacationDays" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="absentDays" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="notEnrolledDays" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="holidays" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[13]]></defaultValueExpression>
+	</parameter>
+	<parameter name="totalWorkingMinutes" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["137:28"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="actualWorkingMinutes" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["137:28"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="holidayWorkingMinutes" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["0:00"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="legalOverMinutes" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["0:00"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nightWorkingMinutes" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["0:00"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="month" class="java.lang.String"/>
+	<queryString language="JSON">
+		<![CDATA[days]]>
+	</queryString>
+	<field name="date" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="date"/>
+		<fieldDescription><![CDATA[date]]></fieldDescription>
+	</field>
+	<field name="dayOfWeek" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="dayOfWeek"/>
+		<fieldDescription><![CDATA[dayOfWeek]]></fieldDescription>
+	</field>
+	<field name="weekDay" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="weekDay"/>
+		<fieldDescription><![CDATA[weekDay]]></fieldDescription>
+	</field>
+	<field name="attendanceType" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="attendanceType"/>
+		<fieldDescription><![CDATA[attendanceType]]></fieldDescription>
+	</field>
+	<field name="vacation" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="vacation"/>
+		<fieldDescription><![CDATA[vacation]]></fieldDescription>
+	</field>
+	<field name="start" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="start"/>
+		<fieldDescription><![CDATA[start]]></fieldDescription>
+	</field>
+	<field name="finish" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="finish"/>
+		<fieldDescription><![CDATA[finish]]></fieldDescription>
+	</field>
+	<field name="manualRest" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="manualRest"/>
+		<fieldDescription><![CDATA[manualRest]]></fieldDescription>
+	</field>
+	<field name="automatedRest" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="automatedRest"/>
+		<fieldDescription><![CDATA[automatedRest]]></fieldDescription>
+	</field>
+	<field name="notWorking" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="notWorking"/>
+		<fieldDescription><![CDATA[notWorking]]></fieldDescription>
+	</field>
+	<field name="actual" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="actual"/>
+		<fieldDescription><![CDATA[actual]]></fieldDescription>
+	</field>
+	<field name="overtime" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="overtime"/>
+		<fieldDescription><![CDATA[overtime]]></fieldDescription>
+	</field>
+	<field name="night" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="night"/>
+		<fieldDescription><![CDATA[night]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="280" y="0" width="70" height="30" uuid="2e0bf1ca-7395-48d5-9db0-2ebd8c66fadf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[出勤簿]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="0" width="100" height="30" uuid="5d0030b0-3e96-4295-85c1-0452ec1d521e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{month}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="70" height="20" uuid="e1e2f0e1-f9f5-40fa-968f-e80380d9253d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{employeeNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="20" width="170" height="20" uuid="b94057bd-4921-49c3-8bbd-fc11d4b29396"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{employeeName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="10" width="90" height="20" backcolor="#76838F" uuid="f7375f21-912f-4512-9b08-7eb24310e941"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[契約区分]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="30" width="90" height="20" uuid="513a9fcf-5b3c-49f8-b904-3e1d8f33385b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{employeeType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="90" y="10" width="250" height="20" backcolor="#76838F" uuid="70b66632-0482-4c31-a366-2770c4c903f5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[所属]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="30" width="250" height="20" uuid="f17f28ec-9712-43f4-909a-5d461fc2eb09"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{departments}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="340" y="10" width="60" height="20" backcolor="#76838F" uuid="1f51a7e2-a81a-4d41-b9fd-0c792715a6ec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[所定日数(月)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="340" y="30" width="60" height="20" uuid="d4e1f79b-0295-40e8-b2b7-cce4248a67de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{monthlyScheduledWorkingDays}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="30" width="80" height="20" uuid="826d4e58-43f4-4e60-8488-83b530176115"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{monthlyScheduledWorkingMinutes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="400" y="10" width="80" height="20" backcolor="#76838F" uuid="3901d614-614d-4bee-a7ed-a03e9c98c5a9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[所定時間(月)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="480" y="10" width="70" height="20" backcolor="#76838F" uuid="947fb0c6-1074-463b-aecf-fa9a54de47d6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[所定時間(日)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="480" y="30" width="70" height="20" uuid="e254e378-d186-45c2-beee-65f045c6ac39"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{dailyScheduledWorkingMinutes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="50" width="40" height="20" backcolor="#76838F" uuid="56963d6e-7785-4aa2-9f8c-d7f4b5e2019d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[出勤]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="70" width="40" height="20" uuid="53428e31-c97a-4d73-8ddd-7679ff11e198"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{workedDays}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="40" y="50" width="40" height="20" backcolor="#76838F" uuid="cf359072-fef0-4094-90c1-1eb96312d483"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[休出]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="70" width="40" height="20" uuid="ef5c643f-f16f-4362-a100-7ccc9e0604d0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{workedAtHolidayDays}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="50" width="40" height="20" backcolor="#76838F" uuid="9d32a11a-bb8d-4f90-85d9-c6359b2a478a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[有休]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="70" width="40" height="20" uuid="25382fd8-4439-4991-9bfc-c859dd5eda36"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{paidVacationDays}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="120" y="50" width="40" height="20" backcolor="#76838F" uuid="dec205dc-8539-4601-890c-463cecb99291"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[特休]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="70" width="40" height="20" uuid="48c229c4-8fa4-4208-9a19-bc31e23e319a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{specialVacationDays}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="160" y="50" width="40" height="20" backcolor="#76838F" uuid="926e51a4-5f03-44ee-8efc-23fba57b49fc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[欠勤]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="160" y="70" width="40" height="20" uuid="3493ca9c-7b4a-41fc-8e3b-7df95b74a1aa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{absentDays}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="200" y="50" width="40" height="20" backcolor="#76838F" uuid="b52ab7b6-8145-474b-98a4-b789871178a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[無在籍]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="70" width="40" height="20" uuid="3d911fe3-5ed0-4231-8f3d-2658cd0772dc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{notEnrolledDays}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="240" y="50" width="40" height="20" backcolor="#76838F" uuid="f416e27b-c2a9-4827-af37-ffc220fd5093"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[休日]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="240" y="70" width="40" height="20" uuid="680642f2-ce81-4710-8c6c-607cac157026"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{holidays}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="280" y="50" width="60" height="20" backcolor="#76838F" uuid="b551f4f8-9d9b-40e0-93e4-6d10cf489c82"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[総労働時間]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="70" width="60" height="20" uuid="e7d5eb12-6b82-4ed0-961b-14018086106c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{totalWorkingMinutes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="340" y="50" width="60" height="20" backcolor="#76838F" uuid="f6498f05-6511-41cf-986a-351cb76bb4a3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[実労働時間]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="340" y="70" width="60" height="20" uuid="ed2d0be5-f6a8-45a3-b3bc-c23d163b6ac5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{actualWorkingMinutes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="400" y="50" width="50" height="20" backcolor="#76838F" uuid="c265bef7-ece6-4886-b789-26f5d2507724"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[休日労働]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="400" y="70" width="50" height="20" uuid="fb835cdc-509b-48e2-858e-d0537ccd37a9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{holidayWorkingMinutes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="450" y="50" width="50" height="20" backcolor="#76838F" uuid="a461020c-2054-46d9-994e-2d7bdb6a462c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[時間外]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="450" y="70" width="50" height="20" uuid="79248d03-92a9-4ce8-9d00-8853a45a94e7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{legalOverMinutes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="500" y="50" width="50" height="20" backcolor="#76838F" uuid="393651ce-5ff8-443d-82c9-90d765998261"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[深夜]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="500" y="70" width="50" height="20" uuid="146cf382-aab8-4653-9480-7647de42e4c4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{nightWorkingMinutes}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="20" height="20" backcolor="#76838F" uuid="b070e8cf-38e1-43a1-b98a-e40841152391">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e61cb429-5a96-4354-b24a-f943b3e7d11e"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[日]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="0" width="30" height="20" backcolor="#76838F" uuid="9806288a-eb4b-412d-8632-6a264040687e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="452f2983-90de-427b-b5f5-d26020a05a44"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[曜日]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="50" y="0" width="50" height="20" backcolor="#76838F" uuid="23603e91-a83c-4afd-beea-f9120c87eb77">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a71953a2-dee6-4fc8-9479-f44ac2683574"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[日種]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="0" width="60" height="20" backcolor="#76838F" uuid="55de1046-eb33-45ea-8b22-7245d5df12f0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c6527301-8167-4a61-ae67-29c3d491294a"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[出勤]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="160" y="0" width="70" height="20" backcolor="#76838F" uuid="a7e3e722-cf53-43de-a67d-d846840a36d3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39232dc6-db42-4c58-82d5-6a826201ab83"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[休暇]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="230" y="0" width="40" height="20" backcolor="#76838F" uuid="33630aff-220e-4c75-b535-2e4ba6d189d3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="64fbb81b-c00d-48f3-b999-2f001cb55ff6"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[出勤]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="270" y="0" width="40" height="20" backcolor="#76838F" uuid="a68d0dd8-c2ab-4169-83be-e904cacb4aa7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d93669c-fb26-4351-9b8e-3b4211d7ed22"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[退勤]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="310" y="0" width="40" height="20" backcolor="#76838F" uuid="f068b9fa-8f45-494b-98eb-49225192107f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51acca9d-fa92-4248-a6c8-49c25b4e5f61"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[申休]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="350" y="0" width="40" height="20" backcolor="#76838F" uuid="32aef27d-d0b5-4e00-bc25-93d579623caf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="17926260-9211-4eda-b9a9-f7a17bcc2351"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[自休]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="390" y="0" width="40" height="20" backcolor="#76838F" uuid="54d2c3a8-8f30-4030-9c1b-f83f8ee61c5d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="04659d01-142c-4443-ab7b-25e9ce0436ed"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[勤外]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="430" y="0" width="40" height="20" backcolor="#76838F" uuid="9ad7f842-6ec4-487d-9b53-f5de5a0e1e0b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="655de76b-8d54-4d86-9d23-0564d0ffb095"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[実働]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="470" y="0" width="40" height="20" backcolor="#76838F" uuid="b566ec1b-b834-4639-93d2-a4b89bef2628">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="967a1102-d6dc-4915-9303-51a015175390"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[残業]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="510" y="0" width="40" height="20" backcolor="#76838F" uuid="152faa39-edfe-4274-a1ab-224b8584ccbf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68b6ec35-c1cc-40e1-b3cf-0841984df66f"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[深夜]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="20" height="20" uuid="a0043ea7-d5da-4825-9a94-bf3c98eb8c23">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e61cb429-5a96-4354-b24a-f943b3e7d11e"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="0" width="30" height="20" uuid="1dd0160a-70a2-4ba8-8c60-c12109c110a3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="452f2983-90de-427b-b5f5-d26020a05a44"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dayOfWeek}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="0" width="50" height="20" uuid="53195dfa-e7f3-41e6-aae2-32f2aee83604">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a71953a2-dee6-4fc8-9479-f44ac2683574"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{weekDay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="60" height="20" uuid="48f6ffad-80ac-4237-9d85-f706e05e8eb0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c6527301-8167-4a61-ae67-29c3d491294a"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{attendanceType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="70" height="20" uuid="c9d7688e-bfbc-4630-b284-4d28e5d0e7f7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39232dc6-db42-4c58-82d5-6a826201ab83"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vacation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="0" width="40" height="20" uuid="9cc6959b-4028-40a8-94ef-de004e86013e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="64fbb81b-c00d-48f3-b999-2f001cb55ff6"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{start}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="40" height="20" uuid="e9d09ee0-6114-487f-9715-671074650fb6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d93669c-fb26-4351-9b8e-3b4211d7ed22"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{finish}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="0" width="40" height="20" uuid="286bf4f0-55c7-4373-9cf3-3563a2de210c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51acca9d-fa92-4248-a6c8-49c25b4e5f61"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{manualRest}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="40" height="20" uuid="92f898a3-2c78-4094-8e8d-54d05b550dfa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="17926260-9211-4eda-b9a9-f7a17bcc2351"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{automatedRest}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="0" width="40" height="20" uuid="3bb749b6-06ca-4c10-81d5-09a4c811f017">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="04659d01-142c-4443-ab7b-25e9ce0436ed"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{notWorking}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="40" height="20" uuid="d083af57-c1af-4890-bf2d-54ac44790ace">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="655de76b-8d54-4d86-9d23-0564d0ffb095"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{actual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="40" height="20" uuid="c09efea3-f2ec-46ae-a91e-fe2209bef719">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="967a1102-d6dc-4915-9303-51a015175390"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{overtime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="510" y="0" width="40" height="20" uuid="a8676e25-47f2-4cca-81d4-614e1eed5ede">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68b6ec35-c1cc-40e1-b3cf-0841984df66f"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{night}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

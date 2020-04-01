@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="daily_attendance_book" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="177b63c4-d699-4112-b4e4-0d8a515425ed">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="csvsample/dataAdapter.xml"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="日付" class="java.lang.String"/>
+	<field name="曜日" class="java.lang.String"/>
+	<field name="日の種別" class="java.lang.String"/>
+	<field name="出勤種別" class="java.lang.String"/>
+	<field name="休暇名称" class="java.lang.String"/>
+	<field name="出勤時間" class="java.lang.String"/>
+	<field name="退勤時間" class="java.lang.String"/>
+	<field name="申請休憩" class="java.lang.String"/>
+	<field name="自動休憩" class="java.lang.String"/>
+	<field name="勤務外" class="java.lang.String"/>
+	<field name="実働時間" class="java.lang.String"/>
+	<field name="残業時間" class="java.lang.String"/>
+	<field name="深夜労働" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="227" y="20" width="100" height="30" uuid="2e0bf1ca-7395-48d5-9db0-2ebd8c66fadf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[出勤簿]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="20" height="30" uuid="b070e8cf-38e1-43a1-b98a-e40841152391">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e61cb429-5a96-4354-b24a-f943b3e7d11e"/>
+				</reportElement>
+				<text><![CDATA[日付]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="0" width="30" height="30" uuid="9806288a-eb4b-412d-8632-6a264040687e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="452f2983-90de-427b-b5f5-d26020a05a44"/>
+				</reportElement>
+				<text><![CDATA[曜日]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="46" height="30" uuid="23603e91-a83c-4afd-beea-f9120c87eb77">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a71953a2-dee6-4fc8-9479-f44ac2683574"/>
+				</reportElement>
+				<text><![CDATA[日種]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="113" y="0" width="47" height="30" uuid="55de1046-eb33-45ea-8b22-7245d5df12f0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c6527301-8167-4a61-ae67-29c3d491294a"/>
+				</reportElement>
+				<text><![CDATA[出種]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="0" width="63" height="30" uuid="a7e3e722-cf53-43de-a67d-d846840a36d3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39232dc6-db42-4c58-82d5-6a826201ab83"/>
+				</reportElement>
+				<text><![CDATA[休暇]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="224" y="0" width="36" height="30" uuid="33630aff-220e-4c75-b535-2e4ba6d189d3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="64fbb81b-c00d-48f3-b999-2f001cb55ff6"/>
+				</reportElement>
+				<text><![CDATA[出勤]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="40" height="30" uuid="a68d0dd8-c2ab-4169-83be-e904cacb4aa7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d93669c-fb26-4351-9b8e-3b4211d7ed22"/>
+				</reportElement>
+				<text><![CDATA[退勤]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="40" height="30" uuid="f068b9fa-8f45-494b-98eb-49225192107f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51acca9d-fa92-4248-a6c8-49c25b4e5f61"/>
+				</reportElement>
+				<text><![CDATA[申休]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="40" height="30" uuid="32aef27d-d0b5-4e00-bc25-93d579623caf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="17926260-9211-4eda-b9a9-f7a17bcc2351"/>
+				</reportElement>
+				<text><![CDATA[自休]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="40" height="30" uuid="54d2c3a8-8f30-4030-9c1b-f83f8ee61c5d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="04659d01-142c-4443-ab7b-25e9ce0436ed"/>
+				</reportElement>
+				<text><![CDATA[勤外]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="0" width="40" height="30" uuid="9ad7f842-6ec4-487d-9b53-f5de5a0e1e0b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="655de76b-8d54-4d86-9d23-0564d0ffb095"/>
+				</reportElement>
+				<text><![CDATA[実働]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="0" width="40" height="30" uuid="b566ec1b-b834-4639-93d2-a4b89bef2628">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="967a1102-d6dc-4915-9303-51a015175390"/>
+				</reportElement>
+				<text><![CDATA[残業]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="0" width="40" height="30" uuid="152faa39-edfe-4274-a1ab-224b8584ccbf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68b6ec35-c1cc-40e1-b3cf-0841984df66f"/>
+				</reportElement>
+				<text><![CDATA[深夜]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="49" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="20" height="30" uuid="a0043ea7-d5da-4825-9a94-bf3c98eb8c23">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e61cb429-5a96-4354-b24a-f943b3e7d11e"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{日付}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="0" width="30" height="30" uuid="1dd0160a-70a2-4ba8-8c60-c12109c110a3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="452f2983-90de-427b-b5f5-d26020a05a44"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{曜日}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="0" width="46" height="30" uuid="53195dfa-e7f3-41e6-aae2-32f2aee83604">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a71953a2-dee6-4fc8-9479-f44ac2683574"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{日の種別}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="0" width="47" height="30" uuid="48f6ffad-80ac-4237-9d85-f706e05e8eb0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c6527301-8167-4a61-ae67-29c3d491294a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{出勤種別}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="63" height="30" uuid="c9d7688e-bfbc-4630-b284-4d28e5d0e7f7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39232dc6-db42-4c58-82d5-6a826201ab83"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{休暇名称}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="0" width="36" height="30" uuid="9cc6959b-4028-40a8-94ef-de004e86013e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="64fbb81b-c00d-48f3-b999-2f001cb55ff6"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{出勤時間}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="40" height="30" uuid="e9d09ee0-6114-487f-9715-671074650fb6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d93669c-fb26-4351-9b8e-3b4211d7ed22"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{退勤時間}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="40" height="30" uuid="286bf4f0-55c7-4373-9cf3-3563a2de210c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51acca9d-fa92-4248-a6c8-49c25b4e5f61"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{申請休憩}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="40" height="30" uuid="92f898a3-2c78-4094-8e8d-54d05b550dfa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="17926260-9211-4eda-b9a9-f7a17bcc2351"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{自動休憩}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="40" height="30" uuid="3bb749b6-06ca-4c10-81d5-09a4c811f017">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="04659d01-142c-4443-ab7b-25e9ce0436ed"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{勤務外}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="40" height="30" uuid="d083af57-c1af-4890-bf2d-54ac44790ace">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="655de76b-8d54-4d86-9d23-0564d0ffb095"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{実働時間}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="40" height="30" uuid="c09efea3-f2ec-46ae-a91e-fe2209bef719">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="967a1102-d6dc-4915-9303-51a015175390"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{残業時間}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="40" height="30" uuid="a8676e25-47f2-4cca-81d4-614e1eed5ede">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68b6ec35-c1cc-40e1-b3cf-0841984df66f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{深夜労働}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
